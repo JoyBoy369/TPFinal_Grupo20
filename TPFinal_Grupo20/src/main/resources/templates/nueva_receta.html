@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximun-scale=1, user-scalable=no">
+    
+    <title>Nueva Receta</title>
+    
+    <link th:rel= "stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <link rel= "stylesheet" th:href="@{/css/estilos.css}">
+</head>
+<body>
+
+<header th:replace="~{layouts/header :: header}"></header>
+
+<h3>Nueva Receta</h3>
+
+	<label for="nombre">Nombre</label>
+	<input type="text" id="nombre" name="receta_nombre"	th:field="*{nombre}"><br><br>
+	
+	<label for="categoria">Categoria</label>		
+	<select name="categoria" id="mensaje" th:field="*{categoria}">
+						 <option value=""> Seleccione una categoria</option>
+						 <option value="Carnes">Carnes</option>
+						 <option value="Bebidas">Bebidas</option>
+						 <option value="Dulces">Dulces</option>
+						 <option value="Ensaladas">Ensaladas</option>
+						 <option value="Legumbres y Cereales">Legumbres y Cereales</option>
+						 <option value="Pescados">Pescados</option>
+						 <option value="Pan">Pan</option>
+						 <option value="Sopas y Cremas">Sopas y Cremas</option>					 
+	</select><br><br>
+	
+	<label for="ingredientes">Ingredientes</label>		
+	<select name="ingredientes" id="mensaje" th:field="*{ingredientes}">
+						 <option value=""> Seleccione Ingredientes</option>
+						 <option value="arroz"> Arroz</option>
+	</select><br><br>
+	
+	
+	<label for="Preparacion">Preparación</label>
+	<input type="text" id="preparacion" name="receta_preparacion"	th:field="*{preparacion}"><br><br>
+	
+	<p>Imagen</p>
+
+
+
+<footer th:replace="~{layouts/footer :: footer}"></footer>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>
