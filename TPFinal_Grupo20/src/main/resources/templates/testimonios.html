@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximun-scale=1, user-scalable=no">
+	
+	<title>Testimonios</title>
+	
+	<link th:rel= "stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <link rel= "stylesheet" th:href="@{/css/estilos.css}">
+</head>
+	
+<body>
+	<header th:replace="~{layouts/header :: header}"></header>
+		<div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="..." class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">[usuario]</h5>
+        <p class="card-text">Esta area sera destinada a mostrar los testimonios de los usuarios del Servicio que esten registrados</p>
+        <p class="card-text"><small class="text-body-secondary">Fecha de Publicación 02-04-23</small></p>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+	<footer th:replace="~{layouts/footer :: footer}"></footer>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</html>
