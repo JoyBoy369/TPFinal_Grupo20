@@ -28,30 +28,97 @@ position: fixed;
       height: 100%;
       object-fit: cover;
       z-index: -1;">
+      
+
+<div class="d-flex justify-content-center align-items-center" style="height: 75vh;"> <!--  Carta PESO ideal -->
+<div class="card mb-3 d-flex justify-content-center " style="max-width: 75%; background-color:rgba(255, 255, 255, 0.8);"    >       
+  <div class="row g-0 ">
+    <div class="col-md-4 xl-7 card-body"  style="background-color:#206380; "> 
+		<h3>Calculadora de Peso Ideal</h3>
+    	<p class="card-text">
+			El peso ideal de una persona puede variar según diversos factores,
+			 como la estatura, la edad, el género, la composición corporal y la salud
+			  en general. No existe una medida única del peso ideal que sea aplicable para todas las personas. 
+			  Sin embargo, existen indicadores generales que pueden servir de referencia.
+	</p>
+    </div>
+    <div class="col-md-8" style=" background-image: url(https://img.freepik.com/vector-premium/fondo-triangular-abstracto-patron-geometrico-gris_434359-287.jpg?w=740) ;" >
+      <div class="card-body" >
+		 <form>
+			 <h5 class="card-title">Ingrese sus datos:</h5>
+			 	<div>
+				 <label>Edad:</label>
+				 <input type="number" placeholder="Ingresa tu edad">
+				 </div>
+				 <label>Altura</label>
+				 <input type="number" placeholder="Ingresa tu edad">
+				 
+				  <input type="submit" value="Descubra su peso ideal">
+		 </form>
+      
+ 		<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        
+      </div>
+    </div>
+  </div>
+</div> 
+</div> <!-- FIN  Carta PESO ideal -->
 
 
-
-
-	<div class="card" style="width: 18rem;">
- <img  th:src="@{/images/logoCyber.png}" class="img-fluid" >
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+<div>
+ <!-- IMPORTANCIA DEL PESO -->
+<div class="card mb-3" >
+  <div class="row g-0">
+    <div class="col-md-4">
+       <img  th:src="@{/images/peso.jpg}" class="img-fluid"   >
+    </div>
+    <div class="col-md-8" style=" background-image: url(https://img.freepik.com/vector-premium/fondo-triangular-abstracto-patron-geometrico-gris_434359-287.jpg?w=740) ;">
+      <div class="card-body">
+        <h5 class="card-title">¿Porque es Importante tener un peso ideal?</h5>
+        <p class="card-text">
+			Es importante tener un peso ideal porque está relacionado con la salud y
+			 el bienestar general de una persona. Mantener un peso adecuado puede
+			  tener diversos beneficios, que incluyen:		
+		</p>
+        
+         <p class="card-text">
+        	Salud física: Un peso saludable puede ayudar a prevenir o reducir el riesgo 
+        	de enfermedades crónicas como la diabetes tipo 2, enfermedades cardíacas, presión 
+        	arterial alta, ciertos tipos de cáncer y trastornos musculoesqueléticos. 
+        	También puede mejorar la salud cardiovascular, la función respiratoria y la resistencia física.
+        </p>
+         <p class="card-text">
+			 Salud mental: Mantener un peso saludable puede tener un impacto positivo en la salud
+			  mental y emocional. Puede mejorar la autoestima, la confianza en uno mismo y la imagen corporal, 
+			  lo que a su vez puede contribuir a una mejor salud mental y una mayor calidad de vida.
+         </p> 
+     
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
   </div>
 </div>
+  <!-- FIN IMPORTANCIA DEL PESO -->
 
 
-	<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
 
- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ </div>
 
 <footer th:replace="~{layouts/footer :: footer}"></footer>
 <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
