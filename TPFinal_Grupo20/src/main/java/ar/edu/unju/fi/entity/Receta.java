@@ -9,6 +9,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+/*
 @Entity
 @Table(name="recetas")
 @Component
@@ -75,14 +76,14 @@ public class Receta {
 		this.categoria = categoria;
 	}
 
-/*	public String getIngredientes() {
+	public String getIngredientes() {
 		return ingredientes;
 	}
 
 	public void setIngredientes(String ingredientes) {
 		this.ingredientes = ingredientes;
 	}
-*/
+
 	public String getPreparacion() {
 		return preparacion;
 	}
@@ -101,3 +102,4 @@ public class Receta {
 	
 	
 }
+*/
