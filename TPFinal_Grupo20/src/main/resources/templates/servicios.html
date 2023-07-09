@@ -53,7 +53,18 @@ position: fixed;
 				 <label>Altura</label>
 				 <input type="number" placeholder="Ingresa tu edad">
 				 
+				  <select th:field="*{listaUsuarios}" class="form-control" required>
+						<option value="" selected>Seleccione un usuario</option>
+						<th:block th:each="nomb : ${listaUsuarios}">
+							<option th:text="${nomb.nombre}" th:value="${nomb.id}">
+								
+							</option>
+						</th:block>
+					</select>
+				 
 				  <input type="submit" value="Descubra su peso ideal">
+				  
+				  
 		 </form>
       
  		<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>

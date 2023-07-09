@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+
+ <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximun-scale=1, user-scalable=no">
+    
+    <title>Gestion Datos</title>
+    
+    <link th:rel= "stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <link rel= "stylesheet" th:href="@{/css/estilos.css}">
+
+</head>
+<body>
+
+<header th:replace="~{layouts/header :: header}"></header>
+
+<div class="container text-center">
+	<div>
+		<h3>Hola Administrador</h3>
+	</div>
+		<div class="p-2">
+			<a class="h2" th:href="@{/gestion/nuevo_usuario}">Lista de Usuarios</a>	
+		</div>
+		
+				<form  class="form-inline" th:action="@{/gestion/lista}">
+					<div class="form-group mb-2">
+						<label>Filtro:</label>
+					</div>
+					<div class="form-group mx-sm-3 mb-2">
+						<input type="text" name="idbuscar" class="form-control" id="idbuscar" th:value="${palabraClave}">
+					</div>
+						<input type="submit" class="btn btn-secondary mb-2" value="Buscar">
+						<input type="button" class="btn btn-secondary mb-2" value="Limpiar" onclick="filterTable()">
+				</form>
+				
+					
+								<table class="table table-bordered" id="tablausuario">
+							  <thead>
+							    <tr>
+							      <th scope="col">ID:</th>
+							      <th scope="col">Nombre:</th>
+							      <th scope="col">Apellido:</th>
+							      <th scope="col">DNI:</th>
+							      <th scope="col">Fecha de Nacimiento:</th>
+							      <th scope="col">Altura (mts):</th>
+							      <th scope="col">Telefono:</th>
+							      <th scope="col">Genero:</th>
+							      <th scope="col">Correo:</th>
+							      <th scope="col">PESO ideal del Usuario:</th>
+							              
+							    </tr>
+							  </thead>
+							  <tbody>
+							    <tr th:each="usu : ${listaUsuarios}">
+							    
+							      <td th:text="${usu.id}"></td>
+							       <td th:text="${usu.nombre}"></td>
+							        <td th:text="${usu.apellido}"></td>
+							         <td th:text="${usu.dni}"></td>
+							          <td th:text="${usu.fecha}"></td>
+							           <td th:text="${usu.altura}"></td>
+							            <td th:text="${usu.telefono}"></td>
+							             <td th:text="${usu.genero}"></td>
+							              <td th:text="${usu.correo}"></td>
+							              	<td th:text="${usu.pesoIdeal}"></td>
+							          
+							    </tr>
+							   
+							  </tbody>
+							</table>
+				
+					
+				
+							<!-- IMC -->		
+			<div>
+				<div class="p-2">
+			<a class="h2" th:href="@{/gestion/nuevo_imc}">Registros de IMC</a>	
+		</div>
+								<table class="table table-bordered">
+							  <thead>
+							    <tr>
+							      <th scope="col">ID:</th>
+							      <th scope="col">FechaIMC:</th>
+							      <th scope="col">Peso:</th>
+							      <th scope="col">usuario ID:</th>
+							      <th scope="col">usuario Nombre:</th>
+							        <th scope="col">INDICE MASA CORPORAL:</th>
+							     
+							    
+							              
+							    </tr>
+							  </thead>
+							  <tbody>
+							    <tr th:each="im : ${listaImc}">
+							    
+							      <td th:text="${im.id}"></td>
+							       <td th:text="${im.fechaimc}"></td>
+							        <td th:text="${im.peso}"></td>
+							         <td th:text="${im.usuario.id}"></td>
+							          <td th:text="${im.usuario.nombre}"></td>
+							         					          
+							         	<td th:text="${im.calcularIMC}"></td>
+							       
+							    </tr>
+							   
+							  </tbody>
+							</table>
+				</div><!-- IMC -->	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</div>
+
+
+
+
+
+<script>
+    // Obtener el estado del input almacenado en LocalStorage al cargar la página
+    window.onload = function() {
+        var input = document.getElementById("idbuscar");
+        var inputValue = localStorage.getItem("inputValue");
+        if (inputValue && inputValue.trim() !== "") {
+            input.value = inputValue;
+            document.getElementById("tablausuario").style.display = "table";
+        }
+    };
+
+    function filterTable() {
+        var input = document.getElementById("idbuscar");
+        var table = document.getElementById("tablausuario");
+
+        if (input.value.trim() === "") {
+            table.style.display = "none";
+        } else {
+            table.style.display = "table";
+        }
+
+        // Guardar el estado del input en LocalStorage
+        localStorage.setItem("inputValue", input.value);
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<footer th:replace="~{layouts/footer :: footer}"></footer>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script type="text/javascript">
+	function limpiarCampos(){ window.location='/gestion/lista';}
+</script>
+</body>
+</html>
