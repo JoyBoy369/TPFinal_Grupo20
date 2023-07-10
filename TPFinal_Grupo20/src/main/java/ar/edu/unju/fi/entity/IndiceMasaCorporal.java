@@ -37,7 +37,7 @@ public class IndiceMasaCorporal {
 	@Column(name="imc_date")
 	private LocalDate fechaimc;
 	
-	@Column(name = "imc_value")
+	@Column(name = "imc_value", columnDefinition = "float")
 	private double peso;
 	
 	

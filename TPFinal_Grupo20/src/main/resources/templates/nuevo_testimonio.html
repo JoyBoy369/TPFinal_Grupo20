@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Testimonios</title>
+</head>
+<body>
+    <h1>Testimonios</h1>
+
+    <div th:each="testimonio : ${testimonios}">
+        <h3 th:text="${testimonio.nombre}"></h3>
+        <p th:text="${testimonio.contenido}"></p>
+    </div>
+
+    <h2>Agregar testimonio</h2>
+    <form th:action="@{/testimonios/guardar_Testimonio}" method="post" th:object="${testimonio}">
+        <input type="text" name="nombre" th:field="*{nombre}" placeholder="Nombre" required>
+        <textarea name="contenido" th:field="*{contenido}" placeholder="Ingrese su testimonio" required></textarea>
+        <button type="submit">Enviar testimonio</button>
+    </form>
+</body>
+</html>
+
