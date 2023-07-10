@@ -34,41 +34,41 @@ public class Usuario {
 	@Column(name="user_id")
 	private Long id;
 
-	//@NotEmpty(message = "Este campo no puede estar vacio")
+	@NotEmpty(message = "Este campo no puede estar vacio")
 	@Column(name="user_name")
 	private String nombre;
 	
-	//@NotEmpty(message = "Este campo no puede estar vacio")
+	@NotEmpty(message = "Este campo no puede estar vacio")
 	@Column(name="user_apellido")
 	private String apellido;
 	
-	//@Email(message = "Ingrese un correo valido")
-	//@NotEmpty(message = "No puede estar vacio el correo")
+	@Email(message = "Ingrese un correo valido")
+	@NotEmpty(message = "No puede estar vacio el correo")
 	@Column(name="user_mail")
 	private String correo;
 	
 	
-	//@Past(message = "ingrese una fecha valida")
-	//@NotNull(message = "No puede estar nulo la fecha")
+	@Past(message = "ingrese una fecha valida")
+	@NotNull(message = "No puede estar nulo la fecha")
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	@Column(name="usar_date")
 	private LocalDate fecha;
 	
 
 
-	//@Size(min=10,max=18,message = "Ingrese un telefono valido Ej:3880934183")
+	@Size(min=10,max=18,message = "Ingrese un telefono valido Ej:3880934183")
 	@Column(name="user_phone")
 	private String telefono;
 	
-	//@NotEmpty(message = "Este campo no puede estar vacio")
+	@NotEmpty(message = "Este campo no puede estar vacio")
 	@Column(name="user_genero")
 	private String genero;
 	
-	//@Positive(message = "Ingrese una altura valida")
-	@Column(name="user_altura")
+	@Positive(message = "Ingrese una altura valida")
+	@Column(name="user_altura", columnDefinition = "float")
 	private double altura;
 	
-	//@NotNull(message = "Campo Obligatorio")
+	@NotNull(message = "Campo Obligatorio")
 	@Column(name="user_DNI")
 	private String dni;
 	
