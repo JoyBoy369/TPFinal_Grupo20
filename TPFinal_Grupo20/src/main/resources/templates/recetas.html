@@ -6,38 +6,25 @@
     
     <title>Recetas</title>
     
-    <link th:rel= "stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
-    <link rel= "stylesheet" th:href="@{/css/estilos.css}">
+    <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
 </head>
 <body>
 
 <header th:replace="~{layouts/header :: header}"></header>
 
-<a>Lista de Recetas</a>
-	  <div class="col-md-4">
-	      <div class="card-body">
-						      
-	<h5 class="card-title">Receta:</h5>
-							   <p class="card-text" >Id:</p>
-						       <p class="card-text" >Nombre:</p> 
-						       <p class="card-text" >Categoría: </p>						        
-						       <p class="card-text" >Ingredientes:</p>
-						       <p class="card-text" >Preparación:</p>   
-	  </div> 
-	       </div>
+<h1>Lista de Recetas</h1>
 
-      <div class="col-md-4">
-		   <div class="card-body">
-    					
-						        <h5 class="card-title" th:text= "${rec.id}"></h5>
-						        <p class="card-text" th:text= "${rec.nombre}"></p>
-						        <p class="card-text" th:text= "${rec.categoria}"></p>
-						        <p class="card-text" th:text= "${rec.ingredientes}"></p>
-						        <p class="card-text" th:text= "${rec.preparacion}"></p>
-						              
-						      </div>
-						    </div>
-
+<div class="col-md-4">
+    <div class="card-body">
+        <h5 class="card-title">Receta:</h5>
+        <p class="card-text">Id: <span th:text="${rec.id}"></span></p>
+        <p class="card-text">Nombre: <span th:text="${rec.nombre}"></span></p>
+        <p class="card-text">Categoría: <span th:text="${rec.categoria}"></span></p>
+        <p class="card-text">Ingredientes: <span th:text="${rec.ingredientes}"></span></p>
+        <p class="card-text">Preparación: <span th:text="${rec.preparacion}"></span></p>
+    </div> 
+</div>
 
 <footer th:replace="~{layouts/footer :: footer}"></footer>
 <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
