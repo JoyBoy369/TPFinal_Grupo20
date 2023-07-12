@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximun-scale=1, user-scalable=no">
+    
+    <title>Lista de Testimonios</title>
+    
+    <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Salud y Bienestar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Registrarme</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Recetas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Testimonios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contáctanos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/gestion/lista">Gestión de datos</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2>Lista de Testimonios</h2>
+        <a class="btn btn-primary" href="/testimonios/nuevo">Agregar Testimonio</a>
+        <table class="table table-bordered mt-3">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Mensaje</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="testimonio : ${testimonios}">
+                    <td th:text="${testimonio.id}"></td>
+                    <td th:text="${testimonio.nombre}"></td>
+                    <td th:text="${testimonio.mensaje}"></td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" th:href="@{/testimonios/editar/{id}(id=${testimonio.id})}">Editar</a>
+                        <a class="btn btn-danger btn-sm" th:href="@{/testimonios/eliminar/{id}(id=${testimonio.id})}">Eliminar</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<footer th:replace="~{layouts/footer :: footer}"></footer>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>
+                        

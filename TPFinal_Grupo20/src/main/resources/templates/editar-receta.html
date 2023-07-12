@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Receta</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+    <div class="container">
+        <h1>Editar Receta</h1>
+        <form th:action="@{/recetas/guardar-edicion}" method="post" th:object="${receta}">
+            <input type="hidden" th:field="*{id}">
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" class="form-control" id="nombre" th:field="*{nombre}">
+            </div>
+            <div class="form-group">
+                <label for="categoria">Categoría:</label>
+                <input type="text" class="form-control" id="categoria" th:field="*{categoria}">
+            </div>
+            <div class="form-group">
+                <label for="ingredientes">Ingredientes:</label>
+                <textarea class="form-control" id="ingredientes" th:field="*{ingredientes}"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="preparacion">Preparación:</label>
+                <textarea class="form-control" id="preparacion" th:field="*{preparacion}"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="imagen">Imagen:</label>
+                <input type="text" class="form-control" id="imagen" th:field="*{imagen}">
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+        <a class="btn btn-secondary" th:href="@{/recetas/listado}">Cancelar</a>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</body>
+</html>

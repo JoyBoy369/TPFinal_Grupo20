@@ -29,8 +29,9 @@ public class AutorTestimonio {
 	@Column(name = "estado_autor")
 	private boolean estado;
 	
-	@OneToMany(mappedBy = "autor")
-	private List<Testimonio> testimonio;
+	@OneToMany(mappedBy = "autorTestimonio")
+	private List<Testimonio> testimonios;
+
 	
 	public AutorTestimonio() {
 		super();
@@ -38,12 +39,12 @@ public class AutorTestimonio {
 	
 	public AutorTestimonio(long idAutor,
 		@NotBlank(message = "Este campo no puede estar vacio") @Size(min = 5, max = 30, message = "El nombre ser de entre 5 caracteres como minimo y 30 de maximo") String nombre,
-		boolean estado, List<Testimonio> testimonio) {
+		boolean estado, List<Testimonio> testimonios) {
 		super();
 		this.idAutor = idAutor;
 		this.nombre = nombre;
 		this.estado = estado;
-		this.testimonio = testimonio;
+		this.testimonios = testimonios;
 	}
 
 	public long getIdAutor() {
@@ -71,11 +72,11 @@ public class AutorTestimonio {
 	}
 
 	public List<Testimonio> getTestimonio() {
-		return testimonio;
+		return testimonios;
 	}
 
-	public void setTestimonio(List<Testimonio> testimonio) {
-		this.testimonio = testimonio;
+	public void setTestimonio(List<Testimonio> testimonios) {
+		this.testimonios = testimonios;
 	}
 	
 }
