@@ -1,97 +1,106 @@
 package ar.edu.unju.fi.entity;
 
+import java.util.List;
 import org.springframework.stereotype.Component;
-
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
-/*
 @Entity
-@Table(name="recetas")
+@Table(name = "recetas")
 @Component
 public class Receta {
 
-	
-	@Id
-	@GeneratedValue (strategy= GenerationType.IDENTITY)
-	@Column (name="recetas_id")
-	private Long id;
-	
-	
-	@Column (name="nombre_receta",nullable = false,length = 80)
-	private String nombre;
-	
-	@Column (name="categoria_receta",nullable = false,length = 80)
-	private String categoria;
-	
-//	@Column (name="categoria_producto",nullable = false,length = 80)
-//  private String ingredientes;
-	
-	
-	@Column (name="categoria_receta",nullable = false)
-	private String preparacion;
-	
-	@Column
-	private boolean estado;
-	
-	
-	
-	
-	
-	public Receta(Long id, String nombre, String categoria, String ingredientes, String preparacion, boolean estado) {
-		super();
-		this.id = id;
-		this.nombre = nombre;
-		this.categoria = categoria;
- //  	this.ingredientes = ingredientes;
-		this.preparacion = preparacion;
-		this.estado = estado;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "recetas_id")
+    private Long id;
 
-	public Long getId() {
-		return id;
-	}
+    @Column(name = "nombre_receta", nullable = false, length = 80)
+    private String nombre;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    @Column(name = "categoria_receta", nullable = false, length = 80)
+    private String categoria;
 
-	public String getNombre() {
-		return nombre;
-	}
+    @ManyToMany(cascade = CascadeType.ALL)
+    private List<Ingrediente> ingredientes;
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+    @Column(name = "preparacion")
+    private String preparacion;
 
-	public String getCategoria() {
-		return categoria;
-	}
+    @Column(name = "imagen")
+    private String imagen;
+    
+    @Column(name = "estado")
+    private boolean estado;
 
-	public void setCategoria(String categoria) {
-		this.categoria = categoria;
-	}
+    public Receta() {
+        
+    }
 
-	public String getIngredientes() {
-		return ingredientes;
-	}
+    public Receta(Long id, String nombre, String categoria, List<Ingrediente> ingredientes, String preparacion, String imagen, boolean estado) {
+    	this.id = id;
+    	this.nombre = nombre;
+        this.categoria = categoria;
+        this.ingredientes = ingredientes;
+        this.preparacion = preparacion;
+        this.imagen = imagen;
+        this.estado = estado;
+    }
 
-	public void setIngredientes(String ingredientes) {
-		this.ingredientes = ingredientes;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public String getPreparacion() {
-		return preparacion;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public void setPreparacion(String preparacion) {
-		this.preparacion = preparacion;
-	}
-	
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public List<Ingrediente> getIngredientes() {
+        return ingredientes;
+    }
+
+    public void setIngredientes(List<Ingrediente> ingredientes) {
+        this.ingredientes = ingredientes;
+    }
+
+    public String getPreparacion() {
+        return preparacion;
+    }
+
+    public void setPreparacion(String preparacion) {
+        this.preparacion = preparacion;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
 	public boolean isEstado() {
 		return estado;
 	}
@@ -99,7 +108,11 @@ public class Receta {
 	public void setEstado(boolean estado) {
 		this.estado = estado;
 	}
-	
-	
+    
+    
 }
-*/
+
+
+
+
+

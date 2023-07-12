@@ -2,11 +2,9 @@ package ar.edu.unju.fi.entity;
 
 import java.time.LocalDate;
 import java.time.Period;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
-
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -78,11 +76,7 @@ public class IndiceMasaCorporal {
 			else {
 				masacorp=Math.round(masacorp);
 				return "Tiene Sobrepeso. IMC: "+masacorp;}
-		
-		
-		
-		
-	}
+		}
 	
 	
 	
@@ -149,10 +143,5 @@ public class IndiceMasaCorporal {
 	public void setEstado(boolean estado) {
 		this.estado = estado;
 	}
-	
-	
-	
-	
-	
 	
 }
