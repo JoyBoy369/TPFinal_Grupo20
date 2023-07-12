@@ -1,13 +1,10 @@
 package ar.edu.unju.fi.entity;
 
 import java.time.LocalDate;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -16,7 +13,6 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 @Component
@@ -40,11 +36,10 @@ public class Testimonio {
 	@Size(min = 4, max = 500, message = "El mensaje no puede ser muy corto, a que nos servira para poder mejorar la experiencia de usuario. ")
 	private String comentario;
 	
-	@Autowired
-	@JoinColumn(name = "id_Autor")
-	@ManyToOne(cascade = CascadeType.ALL , fetch = FetchType.EAGER)
-	@NotNull(message = "Es obligatorio que seleccione un autor")
+	@ManyToOne
+	@JoinColumn(name = "autor_id")
 	private AutorTestimonio autorTestimonio;
+
 	
 	@Column(name = "estado_testimonio")
 	private boolean estado;

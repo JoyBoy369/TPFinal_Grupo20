@@ -15,6 +15,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
@@ -55,7 +56,6 @@ public class Usuario {
 	private LocalDate fecha;
 	
 
-
 	@Size(min=10,max=18,message = "Ingrese un telefono valido Ej:3880934183")
 	@Column(name="user_phone")
 	private String telefono;
@@ -75,6 +75,9 @@ public class Usuario {
 	
 	@Column(name="user_state")
 	private boolean estado;
+	
+	 @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
+	 private PesoIdeal pesoIdeal;
 	
 	@OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER,cascade = {CascadeType.MERGE})
 	private List<IndiceMasaCorporal> imc;
@@ -99,9 +102,7 @@ public class Usuario {
 		this.estado = estado;
 	}
 
-	
 	public double getPesoIdeal() {
-		
 		LocalDate hoy;
 		hoy= LocalDate.now();
 		Period periodo = Period.between(fecha,hoy);
@@ -109,8 +110,6 @@ public class Usuario {
 		return (altura*100)-100+((edad/10)*0.9);
 	}
 	
-
-
 	public String getDni() {
 		return dni;
 	}
@@ -191,10 +190,18 @@ public class Usuario {
 		this.estado = estado;
 	}
 
+	public List<IndiceMasaCorporal> getImc() {
+		return imc;
+	}
 
-	
-	
-	
+	public void setImc(List<IndiceMasaCorporal> imc) {
+		this.imc = imc;
+	}
+
+	public void setPesoIdeal(PesoIdeal pesoIdeal) {
+		this.pesoIdeal = pesoIdeal;
+	}
+
 	@Override
 	public String toString() {
 		return "Usuario [getPesoIdeal()=" + getPesoIdeal() + "]";
